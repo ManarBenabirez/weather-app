@@ -3,49 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
   <title>Weather App</title>
-  <link href="https://unpkg.com/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <script src="script.js" defer></script>
-  <div class="container">
+  <main class="container">
     <div class="search-box">
-      <button class="location-btn"><i class="bx bxs-map"></i></button> <!-- Geolocation Button -->
+      <button class="location-btn" title="Use my location"><i class="bx bxs-map"></i></button>
       <input type="text" id="cityInput" placeholder="Enter your location">
-      <button class="search-btn"><i class="bx bx-search"></i></button> <!-- Search Icon -->
+      <button class="search-btn" title="Search"><i class="bx bx-search"></i></button>
     </div>
-    <div class="weather-box" id="weather" style="display: none;">
-      <div class="box">
-        <div class="info-weather">
-          <div class="weather" id="cityName"></div>
-          <img id="weatherIcon" src="zcloud.png" alt="Weather Icon">
-          <p class="temperature" id="temperature"></p>
-          <p class="description" id="condition"></p>
-        </div>
-      </div>
-    </div>
-    <div class="weather-details">
+
+    <section class="weather-box hidden" id="weather">
+      <h2 class="city" id="cityName"></h2>
+      <img id="weatherIcon" src="images/cloud.png" alt="Weather icon">
+      <p class="temperature" id="temperature"></p>
+      <p class="description" id="condition"></p>
+    </section>
+
+    <section class="weather-details hidden" id="details">
       <div class="humidity">
         <i class="bx bx-water"></i>
         <div class="text">
-          <div class="info-humidity">
-            <span id="humidity">0%</span>
-          </div>
+          <span id="humidity">0%</span>
           <p>Humidity</p>
         </div>
       </div>
       <div class="wind">
-        <i class='bx bx-wind'></i>
+        <i class="bx bx-wind"></i>
         <div class="text">
-          <div class="info-wind">
-            <span id="wind">0 km/h</span>
-          </div>
+          <span id="wind">0 km/h</span>
           <p>Wind Speed</p>
         </div>
       </div>
-    </div>
-    <div id="error" style="color: red; text-align: center; margin-top: 10px;"></div>
-  </div>
+    </section>
+
+    <section class="not-found hidden" id="error">
+      <img src="images/404.png" alt="Not found">
+      <p id="errorMessage"></p>
+    </section>
+  </main>
 </body>
 </html>
